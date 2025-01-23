@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
- 
-<head>dsad
+
+<head>
     <title>Shopping list</title>
     <style>
         table,

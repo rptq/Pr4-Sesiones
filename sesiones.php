@@ -16,9 +16,21 @@
     </style>
 </head>
 <body>
+
+
+
     <h1>Shopping List</h1>
+
+    <form method="post">
+        <label for="workerName">Worker name:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+</form>
+
     <?php
     session_start();
+
+    
 
     // Inicializar la lista de productos en la sesión si no existe
     if (!isset($_SESSION['list'])) {
@@ -48,7 +60,8 @@
             } else {
                 $error = 'Error';
             }
-        } elseif (isset($_POST['update'])) {
+        } elseif (isset($_POST['Edit'])) {
+
             // Actualizar un producto existente en la lista
             $index = (int)$_POST['index'];
             $name = $_POST['name'];
@@ -91,6 +104,11 @@
     ?>
 
     <form method="post">
+    
+        <label for="workerName">Worker name:</label>
+        <input type="text" name="workerName" id="workerName" required>
+        <br>
+
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
         <br>
@@ -125,11 +143,11 @@
                     <td><?php echo number_format($item['price'], 2); ?></td>
                     <td><?php echo number_format($item['quantity'] * $item['price'], 2); ?></td>
                     <td>
-                        <form method="post" style="display:inline;">
+                        <form method="post">
                             <input type="hidden" name="index" value="<?php echo $index; ?>">
                             <input type="submit" name="edit" value="Edit">
                         </form>
-                        <form method="post" style="display:inline;">
+                        <form method="post">
                             <input type="hidden" name="index" value="<?php echo $index; ?>">
                             <input type="submit" name="delete" value="Delete">
                         </form>

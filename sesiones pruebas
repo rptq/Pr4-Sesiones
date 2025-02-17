@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nombre</title>
+</head>
+<body>
+
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['submit'])) {
+        
+        $_SESSION['workerName'] = $_POST['workerName'];
+        echo "Worker name: " . $_SESSION['workerName'];
+    }
+}
+?>
+
+<form method="post">
+    <label for="workerName">Worker name:</label>
+    <input type="text" name="workerName" id="workerName" required>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+</body>
+</html>
